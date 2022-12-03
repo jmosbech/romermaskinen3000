@@ -1,0 +1,92 @@
+<body 
+    style="margin: 0; background: url(billede.png) no-repeat 50%; background-size: contain">
+    <div 
+        style="margin: auto; height: 100vh; max-width: 42rem; display: flex; justify-content: center; flex-direction: column">
+        <input
+            style="font-size: 4rem; margin-bottom: 1rem"
+            type="number"
+            autofocus
+            onkeyup="romermaskinen3000(this.value)" />
+
+        <input
+            style="font-size: 4rem"
+            id="resultat"
+            readonly />
+    </div>
+</body>
+
+<script>
+
+function romermaskinen3000(tal) {
+    resultat = document.getElementById("resultat")
+
+    if (tal == "") return resultat.value = "prut"
+
+    if (tal < 0 || 3999 < tal) return resultat.value = ""
+
+    omvendtestumper = tal.split("").reverse()
+
+    resultat.value =
+        tusinder(omvendtestumper[3]) +
+        hundreder(omvendtestumper[2]) +
+        tiere(omvendtestumper[1]) +
+        ettere(omvendtestumper[0])
+}
+
+function ettere(tal) {
+    if (tal == 0) return ""
+    if (tal == 1) return "I"
+    if (tal == 2) return "II"
+    if (tal == 3) return "III"
+    if (tal == 4) return "IV"
+    if (tal == 5) return "V"
+    if (tal == 6) return "VI"
+    if (tal == 7) return "VII"
+    if (tal == 8) return "VIII"
+    if (tal == 9) return "IX"
+    return ""
+}
+
+function tiere(tal) {
+    if (tal == 0) return ""
+    if (tal == 1) return "X"
+    if (tal == 2) return "XX"
+    if (tal == 3) return "XXX"
+    if (tal == 4) return "XL"
+    if (tal == 5) return "L"
+    if (tal == 6) return "LX"
+    if (tal == 7) return "LXX"
+    if (tal == 8) return "LXXX"
+    if (tal == 9) return "XC"
+    return ""
+}
+
+function hundreder(tal) {
+    if (tal == 0) return ""
+    if (tal == 1) return "C"
+    if (tal == 2) return "CC"
+    if (tal == 3) return "CCC"
+    if (tal == 4) return "CD"
+    if (tal == 5) return "D"
+    if (tal == 6) return "DC"
+    if (tal == 7) return "DCC"
+    if (tal == 8) return "DCCC"
+    if (tal == 9) return "CM"
+    return ""
+}
+
+function tusinder(tal) {
+    if (tal == 0) return ""
+    if (tal == 1) return "M"
+    if (tal == 2) return "MM"
+    if (tal == 3) return "MMM"
+    if (tal == 4) return ""
+    if (tal == 5) return ""
+    if (tal == 6) return ""
+    if (tal == 7) return ""
+    if (tal == 8) return ""
+    if (tal == 9) return ""
+    return "";
+}
+
+</script>
